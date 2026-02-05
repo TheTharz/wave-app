@@ -76,7 +76,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       console.error('Logout error:', error);
     } finally {
       setUser(null);
-      router.push('/login');
+      router.push('/');
     }
   };
 
