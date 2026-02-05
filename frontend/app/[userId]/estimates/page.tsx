@@ -77,12 +77,12 @@ export default function EstimatesPage({ params }: { params: Promise<{ userId: st
         </div>
 
         <nav className="flex-1 overflow-y-auto px-3 py-4">
-          <button className="mb-3 flex w-full items-center gap-2 rounded-lg bg-wave-600 px-3 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-wave-700">
+          <Link href={`/${userId}/estimates/add`} className="mb-3 flex w-full items-center gap-2 rounded-lg bg-wave-600 px-3 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-wave-700">
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
             Create new
-          </button>
+          </Link>
 
           <div className="space-y-1">
             <Link href={`/${userId}/dashboard`} className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">
@@ -162,9 +162,9 @@ export default function EstimatesPage({ params }: { params: Promise<{ userId: st
             <button onClick={logout} className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
               Sign out
             </button>
-            <button className="rounded-lg bg-wave-600 px-4 py-2 text-sm font-medium text-white hover:bg-wave-700">
+            <Link href={`/${userId}/estimates/add`} className="rounded-lg bg-wave-600 px-4 py-2 text-sm font-medium text-white hover:bg-wave-700">
               Create estimate
-            </button>
+            </Link>
           </div>
         </div>
 

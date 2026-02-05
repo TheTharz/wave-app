@@ -22,6 +22,7 @@ export interface Estimate {
   issue_date: string;
   expiry_date: string;
   notes: string;
+  footer_note?: string;
   total: number;
   items: EstimateItem[];
   created_at: string;

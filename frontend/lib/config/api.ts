@@ -15,6 +15,20 @@ export const API_ENDPOINTS = {
     update: (id: number) => `/estimates/${id}`,
     delete: (id: number) => `/estimates/${id}`,
   },
+  customers: {
+    list: '/customers',
+    create: '/customers',
+    detail: (id: number) => `/customers/${id}`,
+    update: (id: number) => `/customers/${id}`,
+    delete: (id: number) => `/customers/${id}`,
+  },
+  items: {
+    list: '/items',
+    create: '/items',
+    detail: (id: number) => `/items/${id}`,
+    update: (id: number) => `/items/${id}`,
+    delete: (id: number) => `/items/${id}`,
+  },
 } as const;
 
 export const TOKEN_KEYS = {

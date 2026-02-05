@@ -1,6 +1,24 @@
 import { API_BASE_URL, API_ENDPOINTS } from '../config/api';
 import { authService } from './auth.service';
-import type { EstimatesResponse } from '../types/estimate';
+import type { EstimatesResponse, Estimate } from '../types/estimate';
+
+interface CreateEstimateData {
+  customer_id: number;
+  issue_date?: string;
+  expiry_date?: string;
+  notes?: string;
+  footer_note?: string;
+  items: {
+    item_id: number;
+    quantity: number;
+    unit_price: number;
+  }[];
+}
+
+interface CreateEstimateResponse {
+  message: string;
+  estimate: Estimate;
+}
 
 class EstimateService {
   private getAuthHeader(): HeadersInit {
@@ -34,6 +52,19 @@ class EstimateService {
     );
 
     return this.handleResponse<EstimatesResponse>(response);
+  }
+
+  async createEstimate(data: CreateEstimateData): Promise<CreateEstimateResponse> {
+    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.estimates.create}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...this.getAuthHeader(),
+      },
+      body: JSON.stringify(data),
+    });
+
+    return this.handleResponse<CreateEstimateResponse>(response);
   }
 }
 

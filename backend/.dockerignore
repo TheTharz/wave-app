@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Flask
+instance/
+.webassets-cache
+*.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Documentation
+*.md
+docs/
+
+# Migrations (keep migrations folder but ignore generated files)
+migrations/versions/__pycache__/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Database
+*.sqlite
+*.db
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Other
+*.bak
+*.tmp
+.cache/
