@@ -34,6 +34,16 @@ class EstimateRepository(BaseRepository[Estimate]):
             desc=True
         )
     
+    def get_by_user(self, user_id: int, page: int = 1, per_page: int = 20) -> tuple[List[Estimate], int]:
+        """Get estimates for a specific user"""
+        return self.get_paginated(
+            page=page,
+            per_page=per_page,
+            filters={'user_id': user_id},
+            order_by='date',
+            desc=True
+        )
+    
     def create_estimate_with_items(self, estimate_data: dict, items_data: List[dict]) -> Estimate:
         """
         Create estimate with items

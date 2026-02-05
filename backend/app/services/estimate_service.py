@@ -124,6 +124,11 @@ class EstimateService:
         """Get all estimates for a customer"""
         estimates, total = self.estimate_repository.get_by_customer(customer_id, page, per_page)
         return [est.to_dict(include_items=False, include_customer=False) for est in estimates], total
+    
+    def get_user_estimates(self, user_id: int, page: int = 1, per_page: int = 20) -> tuple[List[Dict], int]:
+        """Get all estimates for a user"""
+        estimates, total = self.estimate_repository.get_by_user(user_id, page, per_page)
+        return [est.to_dict(include_items=True, include_customer=True) for est in estimates], total
 
 
 # Create singleton instance

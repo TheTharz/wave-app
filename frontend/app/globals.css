@@ -10,6 +10,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Wave Color Theme - Ocean-inspired palette */
+  --color-wave-50: #f0f9ff;
+  --color-wave-100: #e0f2fe;
+  --color-wave-200: #bae6fd;
+  --color-wave-300: #7dd3fc;
+  --color-wave-400: #38bdf8;
+  --color-wave-500: #0ea5e9;
+  --color-wave-600: #0284c7;
+  --color-wave-700: #0369a1;
+  --color-wave-800: #075985;
+  --color-wave-900: #0c4a6e;
+  --color-wave-950: #082f49;
 }
 
 @media (prefers-color-scheme: dark) {

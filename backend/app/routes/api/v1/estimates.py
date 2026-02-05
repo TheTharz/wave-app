@@ -68,6 +68,28 @@ def get_estimate_by_number(estimate_number):
     return jsonify({'estimate': estimate}), 200
 
 
+@api_v1_bp.route('/estimates', methods=['GET'])
+@jwt_required()
+def get_user_estimates():
+    """
+    Get all estimates for the current user (from JWT token)
+    Query params: page (default: 1), per_page (default: 20)
+    """
+    current_user_id = get_jwt_identity()
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('per_page', 20, type=int)
+    
+    estimates, total = estimate_service.get_user_estimates(int(current_user_id), page, per_page)
+    
+    return jsonify({
+        'estimates': estimates,
+        'total': total,
+        'page': page,
+        'per_page': per_page,
+        'total_pages': (total + per_page - 1) // per_page
+    }), 200
+
+
 @api_v1_bp.route('/customers/<int:customer_id>/estimates', methods=['GET'])
 @jwt_required()
 def get_customer_estimates(customer_id):
